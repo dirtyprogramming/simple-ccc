@@ -1,0 +1,117 @@
+<!doctype >
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>CcC</title>
+		<link rel="stylesheet" media="all" href="css/style.css" />
+		<script src="/socket.io/socket.io.js"></script>
+	</head>
+	
+	<body>
+		
+		<div id="tabs">
+			<div id="targetWindow_000000" class="tablink" onclick="displayWindow('000000');">
+				<div class="tabname">Index</div>
+			</div>
+			
+		</div>
+		
+		<div id="messages">
+			
+			<div id="window_000000" class="msgwindow" style="display:block;">
+				<div class="tabheader">
+					<h3>Index</h3>
+				</div>
+				
+				<form id="privatedata" method="" action="">
+					<fieldset><legend>Moi</legend>
+						<input type="text" required pattern=".{0}|.{4,16}" id="public_myusername" name="public_myusername" placeholder="Nom d'utilisateur..." />
+						<input type="radio" id="private_userSex_1" name="private_userSex" value="1" /><label for="private_userSex_1">H</label>
+						&nbsp;
+						<input type="radio" id="private_userSex_2" name="private_userSex" value="2" /><label for="private_userSex_2">F</label>
+						&nbsp;
+						<input type="number" required id="public_userAge" name="public_userAge" placeholder="Age..." min="16" max="99" />
+						<br />
+						<input type="text" id="private_userID" name="private_userID" placeholder="userID..." /><br />
+						<input type="text" id="private_pass" name="private_pass" placeholder="pass..." /><br />
+						<input type="button" id="bt_login"  value="Connexion" onclick="update_userdata();" />
+					</fieldset>
+				</form>
+				
+				<form id="rooms">
+					<fieldset><legend>Rooms</legend>
+						<select id="rooms_list" name="rooms_list">
+							<option value=0>Vide</option>
+						</select>
+						&lt; <input type="button" value="Rafraîchir" onclick="update_roomslist();"/><br /> &gt; 
+						<input type="button" value="Rejoindre" onclick="room_join();" /> 
+						<p>&nbsp;</p>
+					</fieldset>
+				</form>
+				<form id="sender">
+					<fieldset><legend>Utilisateurs</legend>
+						<select id="users_list" name="users_list">
+							<option value=0>Vide</option>
+						</select>
+						&lt; <input type="button" value="Rafraîchir" onclick="update_userslist();" /><br /><br />
+						<label for="message2send">Message: </label><br />
+						<textarea id="message2send" name="message2send" cols="30" rows="4"></textarea><br />
+						<input type="button" value="Send" onclick="sendMessage();" />
+					</fieldset>
+				</form>
+				<form id="params">
+					<fieldset><legend>Paramètres</legend>
+						<p><input type="checkbox" id="params_tabsDisplayName" name="params_tabsDisplayName" value="0" /><label for="params_tabsDisplayName">Nom des utilisateurs <i>in</i> onglets</label></p>
+					</fieldset>
+				</form>
+				
+				<form id="log">
+					<fieldset><legend>Log</legend>
+						<p>&nbsp;</p>
+					</fieldset>
+				</form>
+				
+			</div>
+			
+			<div id="messagesfooter">
+				<input type="text" id="messagetext" name="messagetext"/>
+				<label for="file2send" title="Envoyer une image"></label>
+				<input type="file" id="file2send" name="file2send" onchange="sendImage();"/>
+				<!-- icons author: https://www.iconfinder.com/yanlu -->
+				<!-- <input type="button" value="Envoyer" onclick="sendImage();" /> -->
+			</div>
+		</div>
+		
+		
+		<!-- *** END OF PAGE *** -->
+		<script src="js/client.js"></script>
+		<script>
+			var dropzone = document.getElementById('messages');
+			
+			dropzone.addEventListener('dragover', function(e) {
+			e.stopPropagation();
+			e.preventDefault();
+			dropzone.style.backgroundColor = '#AFAFAF';
+			});
+			
+			dropzone.addEventListener('dragleave', function(e) {
+				dropzone.style.backgroundColor = '#FFFFFF';
+			});
+			
+			dropzone.addEventListener('drop', function(e) {
+				messages_ondrop(e);
+			});
+			
+			document.getElementById('messagetext').addEventListener('keyup', function(e) {
+				if(e.keyCode == 13)
+					sendMessage(1);
+				else
+					sendTyping();
+			});
+			
+			window.onfocus = function() { document.title = 'Simple CcC'; }
+			window.onblur = function() { document.title = 'Simple CcC'; }
+			
+		</script>
+	</body>
+</html>

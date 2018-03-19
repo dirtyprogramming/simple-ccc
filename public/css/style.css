@@ -1,0 +1,164 @@
+body {
+	margin: 0px;
+}
+
+/* *** *** *** */
+/* Index page */
+/* *** *** *** */
+#window_000000 form {
+	margin: 0px;
+	padding-bottom: 3px;
+}
+#window_000000 fieldset {
+	margin:0px;
+}
+
+#rooms, #sender {
+	float: left;
+}
+#rooms fieldset {
+	height: 159px;
+}
+
+#log {
+	clear: both;
+}
+
+
+
+/* *** *** *** */
+/* Tabs */
+/* *** *** *** */
+#tabs {
+	min-height: 30px;
+	overflow: auto;
+	border-bottom: 1px solid #DDD;
+}
+
+.tablink {
+	float: left;
+	min-width: 64px;
+	height: 30px;
+	margin: 0px 1px;
+	border-left: 1px solid #F1F1F1;
+	padding: 3px;
+	line-height: 28px;
+}
+.tablink:hover, .activetablink {
+	cursor: pointer;
+	background-color: #BDB7B7;
+}
+.tablink:hover {
+	background-color: #CEC8C8;
+}
+.notiftablink {
+	border-top: 3px solid #01FF10;
+}
+
+.tablink .tabsummary, .tabheader span {
+	font-style: italic;
+}
+
+.tabname {
+	float: left;
+	padding-right: 16px;
+}
+
+.tabmgmt {
+	float: right;
+	font-style: italic;
+}
+.tabmgmt:hover {
+	color: #FF0000;
+	font-style: normal;
+}
+
+/* *** *** *** */
+/* Messages */
+/* *** *** *** */
+#messages {
+	padding: 0px 5px;
+}
+
+#messages .msgwindow {
+	position: absolute;
+	display: none;
+	width: 99%;
+	height: 450px;
+	margin-right: 0px;
+	overflow: auto;
+}
+
+#messagesfooter {
+	position: relative;
+	top: 460px;
+	width: 100%;
+	margin: 0px;
+	padding: 0px;
+	height: 30px;
+	
+}
+#messagesfooter input {
+	height: 28px;
+	line-height: 28px;
+}
+#messagesfooter input#messagetext {
+	display: block;
+	float: left;
+	width: 95%;
+	padding: 4px;
+	height: 32px;
+}
+#messagesfooter input#file2send {
+	display: none;
+}
+#messagesfooter label {
+	display: block;
+	float: left;
+	width: 32px;
+	height: 32px;
+	background-image: url('../img/ico_sendImage.png');
+}
+#messagesfooter label:hover {
+	background-image: url('../img/ico_sendImage_color.png');
+	cursor: pointer;
+}
+
+.msgwindow h3 {
+	margin: 2px 0px;
+}
+
+.msgwindow p {
+	clear: both;
+	margin: 4px 5px;
+	padding: 5px;
+	border-radius: 5px;
+}
+.msgwindow p.msg_received {
+	float: left;
+	background-color: #d9ffb3;
+}
+
+.msgwindow p.msg_sent, .msgwindow p.msg_error {
+	float: right;
+}
+.msgwindow p.msg_sent {
+	background-color: #ccffcc;
+}
+.msgwindow p.msg_error {
+	background-color: #ff1010;
+}
+
+p.msg_received span {
+	display: block;
+	font: 8px italic;
+}
+
+p.msg_received span img, p.msg_sent span img {
+	opacity: 0;
+	transition: all 0.5s;
+}
+p.msg_received span img:hover, p.msg_sent span img:hover {
+	opacity: 1;
+	width: 150px;
+}

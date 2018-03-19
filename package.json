@@ -1,0 +1,17 @@
+{
+  "name": "simplecococlient",
+  "version": "1.0.1",
+  "description": "Simple CocoClient est un client rudimentaire pour accéder au tchat de Coco.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "GPLv3",
+  "dependencies": {
+    "express": "^4.14.0",
+    "request": "^2.75.0",
+    "socket.io": "^1.4.8", 
+    "electron-context-menu": "^0.4.0"
+  }
+}
