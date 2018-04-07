@@ -2,6 +2,9 @@
 Un client simple et épuré pour Coco
 
 # Installation et utilisation
+Le plus simple est de télécharger l'application depuis les [releases](/releases) et de lancer l'éxécutable.
+___
+
 1. Télécharger l'ensemble des fichers du git, ou bien le cloner :<br />
 `git clone https://github.com/dirtyprogramming/simple-ccc.git`
 
