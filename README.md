@@ -6,7 +6,9 @@ Le plus simple est de télécharger l'application depuis la page [releases](http
 ___
 
 1. Télécharger l'ensemble des fichers du git, ou bien le cloner :<br />
-`git clone https://github.com/dirtyprogramming/simple-ccc.git`
+`git clone https://github.com/dirtyprogramming/simple-ccc.git`<br />
+se déplacer dans le dossier : `cd simple-ccc`<br />
+puis installer les dépendances : `npm install`
 
 Il est tout à fait possible de s'arrêter là pour utiliser simple-ccc. Pour cela, il suffit de lancer `node server.js` et de se rendre sur `localhost:8080`. Certaines fonctionnalités directement issues d'Electron ne seront en revanche pas disponibles.
 
