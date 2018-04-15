@@ -34,6 +34,7 @@ sio.sockets.on('connection', function(socket) {
 		socket.userAge = data['userAge'];
 		socket.userID = data['userID'];
 		socket.userPass = data['pass'];
+		socket.userCode = data['code'];
 		
 		if(socket.username && socket.username.length > 3 && !socket.userID && !socket.userPass) {
 			console.log('Initializing connection...');

@@ -34,6 +34,7 @@
 						<br />
 						<input type="text" id="private_userID" name="private_userID" placeholder="userID..." /><br />
 						<input type="text" id="private_pass" name="private_pass" placeholder="pass..." /><br />
+						<input type="text" id="private_code" name="private_code" placeholder="code..." value="" /><br />
 						<input type="button" id="bt_login"  value="Connexion" onclick="update_userdata();" />
 					</fieldset>
 				</form>
@@ -86,6 +87,9 @@
 		<!-- *** END OF PAGE *** -->
 		<script src="js/client.js"></script>
 		<script>
+			document.getElementById('private_code').value = getRandomCode();
+			
+			
 			var dropzone = document.getElementById('messages');
 			
 			dropzone.addEventListener('dragover', function(e) {

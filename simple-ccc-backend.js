@@ -216,6 +216,8 @@ function initConnection(socket, cb) {
 		'random4param': Math.random() * 10000000, // random digits {7, 9}
 	};
 	
+	var userCode = (socket.userCode && socket.userCode.length == 6) ? socket.userCode : 'q86exb'; // TODO: Set a random code
+	
 	var preConnectionURL = BASE_URL +'40'+ payload['username'] +'*'+ payload['age'] + payload['sex'];
 	preConnectionURL += payload['longpostalcode'] + payload['myavatar'] + payload['speco'] + 'WKPEVEAZSEQTVPNNZFCL' +'?';
 	preConnectionURL += payload['random4param'];
@@ -227,7 +229,7 @@ function initConnection(socket, cb) {
 			var userData = [rawUserData.substr(0, 6), rawUserData.substr(6)];
 			
 			var setConnectionURL = BASE_URL +'52'+ userData[0] + userData[1];
-			var str2encr = '3551366743*0*q86exb*-2118897394*0*0';
+			var str2encr = '3551366743*0*'+ userCode +'*-2118897394*0*0';
 			var encrStr = extfunctions.enxo(str2encr, userData[1], 0);
 			setConnectionURL += encrStr;
 			
@@ -235,7 +237,8 @@ function initConnection(socket, cb) {
 				if(!err && res.statusCode == 200) {
 					socket.userID = userData[0];
 					socket.userPass = userData[1];
-					socket.emit('loggedin', {'userID': userData[0], 'pass': userData[1]});
+					userData.push(userCode);
+					socket.emit('loggedin', {'userID': userData[0], 'pass': userData[1], 'code': userCode});
 					return cb(null, userData);
 				}
 				else

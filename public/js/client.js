@@ -21,7 +21,8 @@ function update_userdata() {
 	var userAge = document.getElementById('public_userAge').value;
 	var userID = document.getElementById('private_userID').value;
 	var pass = document.getElementById('private_pass').value;
-	socket.emit('update_userdata', {username, userSex, userAge, userID, pass});
+	var code = document.getElementById('private_code').value;
+	socket.emit('update_userdata', {username, userSex, userAge, userID, pass, code});
 }
 /**
  * Stores generated user data provided by coco server
@@ -30,6 +31,7 @@ function update_userdata() {
 function set_loggedin(data) {
 	document.getElementById('private_userID').value = data['userID'];
 	document.getElementById('private_pass').value = data['pass'];
+	document.getElementById('private_code').value = data['code'];
 	update_userslist();
 	update_roomslist();
 	document.getElementById('bt_login').disabled = true;
@@ -483,4 +485,16 @@ function messages_ondrop(e) {
 			sendImage({'file': files[i].path});
 	}
 	
+}
+
+/**
+ *
+ */
+function getRandomCode() {
+	var code = '';
+	for(var i=0;i<6;i++) {
+		code += (Math.floor(Math.random() * 2)) ? Math.floor(Math.random() * 10) : String.fromCharCode(Math.floor(Math.random() * 26 ) + 97);
+	}
+	
+	return(code);
 }
