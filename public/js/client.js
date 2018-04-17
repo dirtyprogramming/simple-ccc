@@ -480,7 +480,7 @@ function messages_ondrop(e) {
 	dropzone.style.backgroundColor = '#FFFFFF';
 	
 	var files = e.dataTransfer.files;
-	if(files[0].path) {
+	if(files[0] && files[0].path) {
 		for(var i=0;i<files.length;i++)
 			sendImage({'file': files[i].path});
 	}

@@ -1,6 +1,6 @@
 {
   "name": "simplecococlient",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Simple CocoClient est un client rudimentaire pour accéder au tchat de Coco.",
   "main": "app.js",
   "scripts": {
