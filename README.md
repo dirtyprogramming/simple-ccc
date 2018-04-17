@@ -19,4 +19,7 @@ L'argument _platform_ peut prendre comme valeur : `darwin` (Mac), `linux`, `win3
 L'argument _arch_ peut prendre comme valeur : `ia32` (32bits), `x64` (64 bits), `armv7l`, `arm64`, `mips64el`...<br />
 Ainsi pour un empaquement pour Windows 64bits :<br />`electron-packager simple-ccc app_simple-ccc --platform=win32 --arch=x64`
 
+Si une erreur concernant la version Electron à utiliser est retournée, il faut ajouter l'option : <br />
+`--electron-version=1.6.2`
+
 3. Il suffit ensuite de lancer l'exécutable _simple-ccc_ à l'intérieur du dossier app_simple-cc.
